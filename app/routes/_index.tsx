@@ -1,4 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
+import { de } from "date-fns/locale/de";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,6 +12,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
+    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={de}>
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
       <ul>
@@ -37,5 +41,6 @@ export default function Index() {
         </li>
       </ul>
     </div>
+    </LocalizationProvider>
   );
 }
